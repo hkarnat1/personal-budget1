@@ -6,22 +6,39 @@
     <title>Personal Budget</title>
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/main.css">
+    <!-- Start of SEO Change -->
+    <meta name="description" content="Manage your budget, stay on tack and receiver alerts with personal budget management application.">
+    <meta name="keywords" content="personal budget, expenses, expense tracking, money spent">
+    <link rel="canonical" href="http://http://198.199.87.170/pb1">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Personal Budget",
+            "description": "A personal-budget management app"
+        }
+    </script>
+    <!-- End of SEO Change -->
+<!-- Start of Semantic HTML Change. Used <nav>, <section>, <article>, <header>, <main>, <footer> tags -->
 </head>
 <body>
     <header>
-        <nav class="menu">
+        <!-- Start of A11y. id, aria-label, alt, for are used to provide accessibility identifiers. For below list items, the accessible names is "personal-budget"  -->
+        <nav class="menu" role="navigation" aria-label="Main Menu">
+            <img src="pb.jpg.avif" alt="personal-budget">
             <ul>
-                <li><a href="/">Homepage</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/login.html">Login</a></li>
-                <li><a href="https://google.com">Google</a></li>
+                <li><a href="/" id="menuItem">Homepage</a></li>
+                <li><a href="/about.html" id="menuItem">About</a></li>
+                <li><a href="/login.html" id="menuItem">Login</a></li>
+                <li><a href="https://google.com" id="menuItem">Google</a></li>
             </ul>
+            <label for="menuItem">personal-budget</label>
         </nav>
-
+<!-- End of A11y -->
         <div class="hero">
             <h1>Personal Budget</h1>
             <aside>
-                <h2>A personal-budget management app</h2>
+                <p>A personal-budget management app</p>
             </aside>
             
         </div>
@@ -123,5 +140,6 @@
         </div>
     </div>
 </footer>
+<!-- End of Semantic HTML Change -->
 </body>
 </html>
