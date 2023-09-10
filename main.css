@@ -76,11 +76,12 @@ div.hero h2 {
 div.bottom {
     height: 20px;
     background-color: #4d5791;
-    padding: 40px;
+    padding: 10px;
 }
 
-.center {
+div.center {
     text-align: center;
+    color: #fff;
 }
 
 .container div.text-box {
