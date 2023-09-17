@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Budget</title>
-    <link rel="stylesheet" href="/pb1/public/reset.css">
-    <link rel="stylesheet" href="/pb1/public/main.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/main.css">
     <!-- Start of SEO Change -->
     <meta name="description" content="Manage your budget, stay on tack and receiver alerts with personal budget management application.">
     <meta name="keywords" content="personal budget, expenses, expense tracking, money spent">
@@ -27,8 +27,8 @@
         <nav class="menu" role="navigation" aria-label="Main Menu">
             <ul>
                 <li><a href="/" id="menuItem">Homepage</a></li>
-                <li><a href="/pb1/public/about.html" id="menuItem">About</a></li>
-                <li><a href="/pb1/public/login.html" id="menuItem">Login</a></li>
+                <li><a href="/about.html" id="menuItem">About</a></li>
+                <li><a href="/login.html" id="menuItem">Login</a></li>
                 <li><a href="https://google.com" id="menuItem">Google</a></li>
             </ul>
             <label for="menuItem">personal-budget</label>
@@ -84,10 +84,52 @@
                     </p>
                 </article>
             </div>
+            <canvas id="myChart" width='400' height="'400"></canvas>
         </section>
         </div>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var dataSource = {
+            datasets: [
+                {
+                    data: [30, 350, 90],
+                    backgroundColor: [
+                        '#ffcd56',
+                        '#ff6384',
+                        '#36a2eb',
+                        '#fd6b19',
+                    ],
+                }
+            ],
+            labels: [
+                'Eat out',
+                'Rent',
+                'Groceries'
+            ]
+        };
+        function createChart(){
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: dataSource
+            });
+        }
+        function getBudget(){
+            axios.get('/budget')
+            .then(function(res) {
+                console.log(res.data);
+                for (var i=0; i<res.data.my_budget.length; i++){
+                    dataSource.datasets[0].data[i]=res.data.my_budget[i].budget;
+                    dataSource.labels[i]=res.data.my_budget[i].title;
+                }
+                createChart();
+            });
+        }
+        getBudget(); 
+    </script>
     </body>
 </main>
 <footer>
@@ -98,5 +140,6 @@
     </div>
 </footer>
 <!-- End of Semantic HTML Change -->
+
 </body>
 </html>
