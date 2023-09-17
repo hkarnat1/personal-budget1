@@ -84,7 +84,8 @@
                     </p>
                 </article>
             </div>
-            <canvas id="myChart" width='400' height="'400"></canvas>
+            <h1>Chart</h1>
+            <p><canvas id="myChart" width='400' height="'400"></canvas></p>
         </section>
         </div>
 
@@ -95,20 +96,20 @@
         var dataSource = {
             datasets: [
                 {
-                    data: [30, 350, 90],
+                    data: [],
                     backgroundColor: [
-                        '#ffcd56',
-                        '#ff6384',
-                        '#36a2eb',
-                        '#fd6b19',
+                        '#2085ec',
+                        '#72b4eb',
+                        '#0a417a',
+                        '#bac7c1',
+                        '#cea9bc',
+                        '#b4acfc',
+                        '#98745c',
+                        '#97698e',
                     ],
                 }
             ],
-            labels: [
-                'Eat out',
-                'Rent',
-                'Groceries'
-            ]
+            labels: []
         };
         function createChart(){
             var ctx = document.getElementById("myChart").getContext("2d");

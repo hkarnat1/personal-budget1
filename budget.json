@@ -1,0 +1,36 @@
+{
+    "my_budget": [
+        {
+            "title": "Eat out",
+            "budget": 500
+        },
+        {
+            "title": "Rent",
+            "budget": 900
+        },
+        {
+            "title": "Groceries",
+            "budget": 200
+        },
+        {
+            "title": "Investment",
+            "budget": 2000
+        },
+        {
+            "title": "Savings",
+            "budget": 2500
+        },
+        {
+            "title": "Trips",
+            "budget": 1500
+        },
+        {
+            "title": "EMI",
+            "budget": 450
+        },
+        {
+            "title": "Miscellaneous",
+            "budget": 150
+        }
+    ]
+}
