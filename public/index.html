@@ -106,16 +106,7 @@
                 datasets: [
                     {
                         data: [],
-                        backgroundColor: [
-                            '#2085ec',
-                            '#72b4eb',
-                            '#0a417a',
-                            '#bac7c1',
-                            '#cea9bc',
-                            '#b4acfc',
-                            '#98745c',
-                            '#97698e',
-                        ],
+                        backgroundColor: [],
                     }
                 ],
                 labels: []
@@ -128,13 +119,14 @@
                 });
             }
             function getBudget() {
-                axios.get('/budget')
+                axios.get('/api/fetchBudget')
                     .then(function (res) {
-                        var dataMap = res.data.my_budget.map((data) => ({ label: data.title, value: data.budget}))
+                        var dataMap = res.data.map((data) => ({ label: data.title, value: data.relatedValue, }))
 
-                        for (var i = 0; i < res.data.my_budget.length; i++) {
-                            dataSource.datasets[0].data[i] = res.data.my_budget[i].budget;
-                            dataSource.labels[i] = res.data.my_budget[i].title;
+                        for (var i = 0; i < res.data.length; i++) {
+                            dataSource.datasets[0].data[i] = res.data[i].relatedValue;
+                            dataSource.labels[i] = res.data[i].title;
+                            dataSource.datasets[0].backgroundColor[i] = res.data[i].color;
                         }
                         createChart();
                         change(dataMap);
